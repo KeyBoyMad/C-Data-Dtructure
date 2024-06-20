@@ -33,10 +33,26 @@ Node *Insert(Node *head, int data)
     return head;
 }
 
+Node* Reverse(Node* p) {
+    if (p == nullptr || p->next == nullptr) {
+        return p;
+    }
+
+    Node* newHead = Reverse(p->next);
+
+    // 检查 p->next 是否为空
+    if (p->next != nullptr) {
+        p->next->next = p;
+    }
+    p->next = nullptr;  // 断开当前节点的下一个指针
+
+    return newHead;
+}
+
 void Print(Node *head)
 {
     if(head == NULL) return; // exit condition
-    printf("%d\n", head->data); // first print head node data
+    printf("\n%d\n", head->data); // first print head node data
     Print(head->next); // recursive call
     
 }
@@ -56,6 +72,8 @@ int main()
     head = Insert(head,6);
     head = Insert(head,5);
     // printf("\n");
+    // Print(head);
+    head = Reverse(head);
     Print(head);
     FreeList(head);
 

@@ -35,7 +35,6 @@ void InsertAtHead(int x)
     head = newnode; // reset head node
 }   
 
-void
 void Print()
 {
     Node *temp = head;

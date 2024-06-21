@@ -23,6 +23,7 @@ Node *Insert(Node *head, int data)
     }
     else
     {
+        
         Node *temp1 = head;
         while(temp1->next != NULL)
         {
@@ -34,16 +35,16 @@ Node *Insert(Node *head, int data)
 }
 
 Node* Reverse(Node* p) {
-    if (p == nullptr || p->next == nullptr) {
+    if (p->next == nullptr) {
         return p;
     }
 
     Node* newHead = Reverse(p->next);
 
-    // 检查 p->next 是否为空
-    if (p->next != nullptr) {
-        p->next->next = p;
-    }
+    
+
+    p->next->next = p;
+    
     p->next = nullptr;  // 断开当前节点的下一个指针
 
     return newHead;

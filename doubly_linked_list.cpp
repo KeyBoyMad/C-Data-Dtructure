@@ -35,6 +35,20 @@ void InsertAtHead(int x)
     head = newnode; // reset head node
 }   
 
+void InsertAtTail(int x)
+{
+    Node *newnode = GetNewNode(x);
+    Node *Tail = head; 
+
+    while(Tail->next != NULL)
+    {
+        Tail = Tail->next;
+    }
+    Tail->next = newnode; // insert at tail
+    newnode->next = NULL; 
+    newnode->prev = Tail; // linked previous
+}
+
 void Print()
 {
     Node *temp = head;
@@ -77,6 +91,9 @@ int main()
     Print();
     ReversPrint();
     InsertAtHead(6);
+    Print();
+    ReversPrint();
+    InsertAtTail(8);
     Print();
     ReversPrint();
 

@@ -14,7 +14,7 @@ void Push(int x )
     A[top] = x;
     //A[++top] = x;
 
-}
+} 
 
 void Pop()
 {
